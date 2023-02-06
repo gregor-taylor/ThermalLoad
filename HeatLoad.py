@@ -1,7 +1,7 @@
 import numpy as np
 import scipy
 import matplotlib.pyplot as plt
-from materials import SS304, Teflon
+from materials import SS304, Teflon, BeCu, OFHC_Cu
 
 T_low=40
 T_high=300
@@ -34,10 +34,14 @@ def calc_SS_coax(cross_sections, length, number):
 
         return Q_total
 
+def plot_thermal_conductivity(material):
+    material.plot_Tcond()
+
 
 SS_microcoax_CS=(4.135e-7, 9.516e-8, 9.729e-8, 3.153e-8)
 cable_length=100e-3
 number_cables=1000
+
 
 Q_tot=calc_SS_coax(SS_microcoax_CS, cable_length, number_cables)
 

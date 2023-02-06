@@ -38,6 +38,7 @@ class SS304():
         plt.plot(T_low,y_low)
         plt.ylabel("Thermal Conductivity W/m.K")
         plt.xlabel("Temp (K)")
+        plt.legend(['SS304 NIST', 'SS304 extrapolated'])
         plt.show()
     def integrate_TC(self, Tlow, Thigh):    
         lamb, _=quad(self.heatConductivity, Tlow, Thigh)
@@ -82,6 +83,7 @@ class Teflon():
         plt.plot(T_low,y_low)
         plt.ylabel("Thermal Conductivity W/m.K")
         plt.xlabel("Temp (K)")
+        plt.legend(['Teflon NIST', 'Teflon extrapolated'])
         plt.show()
     def integrate_TC(self, Tlow, Thigh):    
         lamb, _=quad(self.heatConductivity, Tlow, Thigh)
@@ -172,6 +174,7 @@ class OFHC_Cu():
         plt.plot(T_low,y_low)
         plt.ylabel("Thermal Conductivity W/m.K")
         plt.xlabel("Temp (K)")
+        plt.legend(['OFHC Cu NIST ({})'.format(RRR), 'OFHC extrapolated'])
         plt.show()
     def plot_all_RRRs(self):
         RRRs=['RRR50', 'RRR100', 'RRR150', 'RRR300', 'RRR500']
@@ -228,6 +231,7 @@ class BeCu():
         y_low=func_lowtemp(T_low)
         plt.plot(T, y)
         plt.plot(T_low,y_low)
+        plt.legend(['BeCu NIST', 'BeCu extrapolated'])
         plt.ylabel("Thermal Conductivity W/m.K")
         plt.xlabel("Temp (K)")
         plt.show()
@@ -241,8 +245,8 @@ class BeCu():
 
 
 if __name__=='__main__':
-    mat=BeCu()
-    mat.plot_Tcond()
+    mat=OFHC_Cu()
+    mat.plot_all_RRRs()
 
 
 
